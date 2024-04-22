@@ -10,6 +10,10 @@ html {
     scroll-behavior: smooth;
 }
 
+.custom-modal {
+  padding: 0;
+}
+
 /* Set the scrollbar width and color */
 ::-webkit-scrollbar {
     width: 8px; /* You can adjust the width as needed */

@@ -12,6 +12,9 @@ import azureIcon from '../assets/azure-icon.svg'
 import postgresqlIcon from '../assets/postgresql-icon.svg'
 import javaIcon from '../assets/java-programming-language-icon.svg'
 import ImgSlider from './imgSlider'
+import { Ref, RefObject, useEffect, useRef, useState } from 'react'
+import React from 'react'
+
 
 
 type TechIconKey = 'vuejs' | 'nodejs' | 'azure' | 'postgresql' | 'java';
@@ -40,8 +43,6 @@ const techIcons: Record<TechIconKey, string> = {
 	'java': javaIcon
 }
 
-
-
 const portfolioData: Array<portfolioType> = [
 	{
 		id: 1,
@@ -50,19 +51,19 @@ const portfolioData: Array<portfolioType> = [
 		imgs: [
 			{
 				url: portEvaluacion1,
-				aspectRatio: '375/185'
+				aspectRatio: '1388/678'
 			},
 			{
 				url: portEvaluacion2,
-				aspectRatio: '375/185'
+				aspectRatio: '1388/678'
 			},
 			{
 				url: portEvaluacion3,
-				aspectRatio: '375/185'
+				aspectRatio: '1388/678'
 			},
 			{
 				url: portEvaluacion4,
-				aspectRatio: '375/185'
+				aspectRatio: '1388/678'
 			},
 		],
 		url: 'https://www.linkedin.com/in/ghurtadoa94/',
@@ -75,11 +76,11 @@ const portfolioData: Array<portfolioType> = [
 		imgs: [
 			{
 				url: test3Img,
-				aspectRatio: '126/84'
+				aspectRatio: '1388/925'
 			},
 			{
 				url: test2Img,
-				aspectRatio: '126/84'
+				aspectRatio: '1388/925'
 			},
 		],
 		url: 'https://github.com/ghurtadoarevalo',
@@ -94,36 +95,60 @@ const portfolioData: Array<portfolioType> = [
 				url: test2Img,
 				aspectRatio: '126/84'
 			},
-		],		url: 'mailto:ghurtadoarevalo.94@gmail.com',
+		], url: 'mailto:ghurtadoarevalo.94@gmail.com',
 		tech: ['vuejs']
 	}
 ]
 
-const Portfolio = () => (
-	<section className="pt-10" id='portfolio'>
-		<div className="text-white text-4xl font-thin font-sans flex mb-5 -ml-4"> <img src={codeIcon} alt="" /> <h2 className="ml-5">Portfolio</h2> </div>
+const Portfolio = () => {
+	const [showModal, setShowModal] = useState(false);
+	const [modalImg, setModalImg] = useState('')
 
-		{portfolioData.map((data: portfolioType, index) => (
-			<article className='flex flex-col mb-5 md:grid md:grid-cols-2 md:mt- shadow-white/5 shadow-2xl rounded-3xl' key={index}>
-				{/*<img src={data.img} alt="" className='aspect-[126/84] rounded-3xl' />*/}
-				<ImgSlider>{data.imgs}</ImgSlider>
-				<div className='flex flex-col md:place-items-start md:ml-5 p-5 pt-0'>
-					<h3 className='text-white text-center text-2xl md:text-left'>{data.name}</h3>
-					<div className='flex flex-row place-content-center gap-3 mt-2'>
-						{data.tech.map((tech: TechIconKey, index) => (
-							<button className='flex flex-row gap-2 bg-white/20 px-3 py-1 rounded-full place-items-center hover:bg-white/40' key={index}>
-								<img className='w-3' src={techIcons[tech]} alt="" />
-								<p className='text-white text-xs'>{tech}</p>
-							</button>
-						))}
+	const closeModal = (() => {
+		setShowModal(false)
+	})
+
+	const openModal = ((imgUrl: string) => {
+		setShowModal(true)
+		setModalImg(imgUrl)
+	})
+	console.log(showModal)
+
+	return (
+		<section className="pt-10" id='portfolio'>
+			<div className="text-white text-4xl font-thin font-sans flex mb-5 -ml-4"> <img src={codeIcon} alt="" /> <h2 className="ml-5">Portfolio</h2> </div>
+			{portfolioData.map((data: portfolioType, index) => (
+				<article className='flex flex-col mb-5 md:grid md:grid-cols-2 md:mt- shadow-white/5 shadow-2xl rounded-3xl' key={index}>
+					<ImgSlider openModal={openModal}>{data.imgs}</ImgSlider>
+					<div className='flex flex-col md:place-items-start md:ml-5 p-5 pt-0'>
+						<h3 className='text-white text-center text-2xl md:text-left'>{data.name}</h3>
+						<div className='flex flex-row place-content-center gap-3 mt-2'>
+							{data.tech.map((tech: TechIconKey, index) => (
+								<button className='flex flex-row gap-2 bg-white/20 px-3 py-1 rounded-full place-items-center hover:bg-white/40' key={index}>
+									<img className='w-3' src={techIcons[tech]} alt="" />
+									<p className='text-white text-xs'>{tech}</p>
+								</button>
+							))}
+						</div>
+						<p className='text-white/50 text-balance p-5 text-center md:text-left md:px-0'>{data.info}</p>
+
 					</div>
-					<p className='text-white/50 text-balance p-5 text-center md:text-left md:px-0'>{data.info}</p>
+				</article>
+			))}
+
+			{showModal && (
+				<div className="bg-black/70 fixed inset-0 flex items-center justify-center w-screen h-screen">
+					<button className='absolute top-3 z-20 px-4 py-1 m-3 text-white bg-white/20 rounded-full hover:bg-white/40' onClick={() => closeModal()}>Close image</button>
+					<div className='md:w-3/5'>
+						<img src={modalImg.url} alt="" className={'shadow-md shadow-white/50 border-2 border-white rounded-3xl' + ` aspect-[${modalImg.aspectRatio}]`} />
+					</div>
 
 				</div>
-			</article>
-		))}
-	</section>
-)
+			)
+			}
+		</section>
+	)
+}
 
 
 export default Portfolio
