@@ -10,7 +10,6 @@ type imgSliderlType = {
 }
 
 
-
 const ImgSlider = ({ children, openModal}: imgSliderlType) => {
 
 

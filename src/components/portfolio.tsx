@@ -12,8 +12,7 @@ import azureIcon from '../assets/azure-icon.svg'
 import postgresqlIcon from '../assets/postgresql-icon.svg'
 import javaIcon from '../assets/java-programming-language-icon.svg'
 import ImgSlider from './imgSlider'
-import { Ref, RefObject, useEffect, useRef, useState } from 'react'
-import React from 'react'
+import { useState } from 'react'
 
 
 
@@ -102,13 +101,13 @@ const portfolioData: Array<portfolioType> = [
 
 const Portfolio = () => {
 	const [showModal, setShowModal] = useState(false);
-	const [modalImg, setModalImg] = useState('')
+	const [modalImg, setModalImg] = useState<imgsType>()
 
 	const closeModal = (() => {
 		setShowModal(false)
 	})
 
-	const openModal = ((imgUrl: string) => {
+	const openModal = ((imgUrl: imgsType) => {
 		setShowModal(true)
 		setModalImg(imgUrl)
 	})
@@ -140,7 +139,7 @@ const Portfolio = () => {
 				<div className="bg-black/70 fixed inset-0 flex items-center justify-center w-screen h-screen">
 					<button className='absolute top-3 z-20 px-4 py-1 m-3 text-white bg-white/20 rounded-full hover:bg-white/40' onClick={() => closeModal()}>Close image</button>
 					<div className='md:w-3/5'>
-						<img src={modalImg.url} alt="" className={'shadow-md shadow-white/50 border-2 border-white rounded-3xl' + ` aspect-[${modalImg.aspectRatio}]`} />
+						<img src={modalImg?.url} alt="" className={'shadow-md shadow-white/50 border-2 border-white rounded-3xl' + ` aspect-[${modalImg?.aspectRatio}]`} />
 					</div>
 
 				</div>
