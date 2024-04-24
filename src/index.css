@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 body {
-    --tw-bg-opacity: 1;
-    background-color: rgb(24 24 27 / var(--tw-bg-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(24 24 27 / var(--tw-bg-opacity));
 }
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 .custom-modal {
@@ -16,21 +16,21 @@ html {
 
 /* Set the scrollbar width and color */
 ::-webkit-scrollbar {
-    width: 8px; /* You can adjust the width as needed */
-    height: 8px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: rgb(255, 255, 255, 0.3); /* Color of the scrollbar track */
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: rgb(202,138,4); /* Color of the scrollbar handle */
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgb(234,179,8); /* Color of the scrollbar handle on hover */
-  }
+  width: 8px; /* You can adjust the width as needed */
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(255, 255, 255, 0.3); /* Color of the scrollbar track */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(202, 138, 4); /* Color of the scrollbar handle */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(234, 179, 8); /* Color of the scrollbar handle on hover */
+}
