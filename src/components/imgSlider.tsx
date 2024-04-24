@@ -13,7 +13,6 @@ const escMessageTimeout = 5000; //5 segundos para el ESC
 
 const ImgSlider = ({ children }: imgSliderlType) => {
   const [showModal, setShowModal] = useState(false);
-  const [modalImg, setModalImg] = useState<imgsType[]>();
   const [showEscMessage, setShowEscMessage] = useState<boolean>(false);
 
   const closeModal = () => {
@@ -21,9 +20,8 @@ const ImgSlider = ({ children }: imgSliderlType) => {
     document.body.style.overflow = 'auto';
   };
 
-  const openModal = (imgUrl: imgsType[]) => {
+  const openModal = () => {
     setShowModal(true);
-    setModalImg(imgUrl);
     document.body.style.overflow = 'hidden';
     setShowEscMessage(true);
     setTimeout(() => {
@@ -52,7 +50,7 @@ const ImgSlider = ({ children }: imgSliderlType) => {
         {children.map((image, index) => (
           <button
             onClick={() => {
-              openModal(children);
+              openModal();
             }}
             key={index}
           >
@@ -87,9 +85,10 @@ const ImgSlider = ({ children }: imgSliderlType) => {
                 src={image.url}
                 className={
                   'mb-10 shadow-md snap-start snap-mandatory rounded-t-3xl rounded-b-md' +
-                  ` aspect-[${modalImg?.aspectRatio}]`
+                  ` aspect-[${image.aspectRatio}]`
                 }
                 loading="lazy"
+                alt={`${index}`}
                 key={index}
               />
             ))}
