@@ -46,7 +46,7 @@ const ImgSlider = ({ children }: imgSliderlType) => {
 
   return (
     <>
-      <div className="overflow-x-auto snap-x scroll-smooth whitespace-nowrap">
+      <div className="overflow-x-auto snap-x snap-start scroll-smooth whitespace-nowrap">
         {children.map((image, index) => (
           <button
             onClick={() => {
