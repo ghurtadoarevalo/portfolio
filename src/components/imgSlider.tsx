@@ -10,7 +10,7 @@ interface imgSliderlType {
   children: imgsType[]
 }
 
-const escMessageTimeout = 5000 //5 segundos para el ESC
+const escMessageTimeout = 3000 //3 segundos para el ESC
 
 const ImgSlider = ({ children }: imgSliderlType) => {
   const [showModal, setShowModal] = useState(false)
@@ -68,12 +68,12 @@ const ImgSlider = ({ children }: imgSliderlType) => {
       </div>
 
       {showModal && (
-        <div className="bg-black/70 fixed inset-0 overflow-y-scroll scroll-smooth h-screen w-screen pt-5">
+        <div className="bg-black/70 fixed inset-0 overflow-y-scroll scroll-smooth h-screen w-screen pt-5 z-40">
           <button
-            className="fixed top-0 right-0 z-40 pr-4 py-1 m-3 text-white/80 bg-yellow-600/60 rounded-3xl hover:bg-yellow-600/40"
+            className="fixed top-0 right-0 pr-4 py-1 m-3 z-50 text-white/80 bg-yellow-600/60 rounded-3xl hover:bg-yellow-600/40"
             onClick={() => closeModal()}
           >
-            <span className="pl-4 font-bold text-white/80">X</span> Close
+            <span className="pl-4 font-bold text-white/80  z-50 ">X</span> Close
           </button>
 
           {showEscMessage ? (

@@ -1,21 +1,22 @@
 import headshot from '../assets/fotografia.webp'
 import SocialPill from './socialPill'
-import linkedinIcon from '../assets/linkedin-svgrepo-com.svg'
-import githubIcon from '../assets/github.svg'
-import emailIcon from '../assets/email.svg'
-
+import { ReactElement } from 'react'
+import { IconType } from 'react-icons'
+import { FaLinkedin } from 'react-icons/fa'
+import { FaGithub } from 'react-icons/fa'
+import { SiMinutemailer } from 'react-icons/si'
 interface socialMediaType {
   name: string
-  icon: string
+  icon: ReactElement<IconType>
   url: string
 }
 
 const socialMedia = [
-  { name: 'LinkedIn', icon: linkedinIcon, url: 'https://www.linkedin.com/in/ghurtadoa94/' },
-  { name: 'Github', icon: githubIcon, url: 'https://github.com/ghurtadoarevalo' },
+  { name: 'LinkedIn', icon: <FaLinkedin />, url: 'https://www.linkedin.com/in/ghurtadoa94/' },
+  { name: 'Github', icon: <FaGithub />, url: 'https://github.com/ghurtadoarevalo' },
   {
     name: 'ghurtadoarevalo.94@gmail.com',
-    icon: emailIcon,
+    icon: <SiMinutemailer />,
     url: 'mailto:ghurtadoarevalo.94@gmail.com'
   }
 ]
@@ -43,7 +44,7 @@ export default function Hero() {
           . Santiago, Chile 🇨🇱.
           <p>Specialized in solving problems and delivering quality work.</p>
         </div>
-        <div className="flex flex-row place-content-center gap-2 mt-8 md:place-content-start">
+        <div className="flex flex-row place-content-center gap-2 mt-6 md:place-content-start">
           {socialMedia.map((media: socialMediaType) => (
             <SocialPill key={media.name}>{media}</SocialPill>
           ))}
