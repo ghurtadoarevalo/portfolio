@@ -26,7 +26,7 @@ export default function Hero() {
       className="flex flex-col gap-4 md:gap-10 md:flex-row mt-16 place-content-center"
       id="about"
     >
-      <div className="place-self-center mt-5 ">
+      <div className="place-self-center mt-5 z-0">
         <img
           src={headshot}
           alt="Headshot"

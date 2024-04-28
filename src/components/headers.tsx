@@ -23,6 +23,7 @@ function pressRouteMenu(
   setCurrentRoute(routeName)
   setTimeout(() => {
     setBurguerMenu(false)
+    setCurrentRoute('')
   }, 1000)
 }
 
@@ -52,13 +53,13 @@ const Header = () => {
         </div>
 
         <div className="sm:hidden overflow-hidden right-5 fixed text-white z-20">
-          <button className="text-2xl z-30" onClick={() => setBurguerMenu(!burguerMenu)}>
+          <button className="text-2xl z-1" onClick={() => setBurguerMenu(!burguerMenu)}>
             <CiMenuBurger />
           </button>
           {burguerMenu ? (
-            <div className="flex flex-col fixed z-10 top-16 right-0 bg-black/90 w-1/2 h-[90vh] justify-evenly text-end rounded-l-3xl place-items-center transition-transform ease-in duration-300 ">
+            <div className="flex flex-col fixed top-16 right-0 bg-black/75 w-1/2 h-[90vh] justify-evenly text-end rounded-l-3xl place-items-center transition-transform ease-in duration-300">
               {navigation.map((navigationItem) => (
-                <div className="flex place-items-center" key={navigationItem.name}>
+                <div className="flex place-items-center " key={navigationItem.name}>
                   <span className="text-yellow-600 text-3xl">{navigationItem.icon}</span>
                   <a
                     className={linkRouteClassName(navigationItem.name, currentRoute) + ' text-xl'}

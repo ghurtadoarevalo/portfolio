@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { MdFlipCameraAndroid } from 'react-icons/md'
 
 interface imgsType {
   url: string
@@ -47,7 +48,7 @@ const ImgSlider = ({ children }: imgSliderlType) => {
 
   return (
     <>
-      <div className="overflow-x-auto scroll-smooth whitespace-nowrap ">
+      <div className="overflow-x-auto scroll-smooth whitespace-nowrap">
         {children.map((image, index) => (
           <button
             className=""
@@ -76,18 +77,28 @@ const ImgSlider = ({ children }: imgSliderlType) => {
           </button>
 
           {showEscMessage ? (
-            <p className="fixed top-0 left-1/2 place-content-center z-40 p-4 py-1 m-3 text-white/50 font-thin rounded-3xl hover:bg-white/40 animate-pulse">
-              Press ESC
-            </p>
+            <>
+              <div className="hidden left-0 top-20 right-0 m-auto sm:block bg-black/80 fixed text-center z-40 w-1/2 p-10 text-xl text-white/50 font-thin rounded-lg animate-pulse">
+                Press ESC to close the slider
+              </div>
+              <div className="sm:hidden left-0 top-20 right-0 m-auto bg-black/80 fixed text-center z-40 w-1/2 p-10  font-thin rounded-lg animate-pulse">
+                <div className="flex flex-row text-xl text-white/50">
+                  <span className="text-3xl place-self-center">
+                    <MdFlipCameraAndroid />
+                  </span>{' '}
+                  Rotate your phone for a better experience
+                </div>
+              </div>
+            </>
           ) : null}
 
-          <div className="place-items-center mt-10">
+          <div className="pt-10 absolute left-0 right-0 ml-auto mr-auto w-screen">
             {children.map((image, index) => (
               <img
                 src={image.url}
                 className={
-                  'mb-10 shadow-md snap-start snap-mandatory rounded-t-3xl rounded-b-md' +
-                  ` aspect-[${image.aspectRatio}]`
+                  'mb-10 xl:max-w-screen-2xl shadow-md snap-start snap-mandatory' +
+                  ` aspect-[${image.aspectRatio}] left-0 right-0 ml-auto mr-auto w-screen`
                 }
                 loading="lazy"
                 alt={`${index}`}
