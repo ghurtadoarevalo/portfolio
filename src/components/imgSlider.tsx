@@ -1,56 +1,58 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 
-type imgsType = {
-  url: string;
-  aspectRatio: string;
-};
+interface imgsType {
+  url: string
+  aspectRatio: string
+}
 
-type imgSliderlType = {
-  children: imgsType[];
-};
+interface imgSliderlType {
+  children: imgsType[]
+}
 
-const escMessageTimeout = 5000; //5 segundos para el ESC
+const escMessageTimeout = 5000 //5 segundos para el ESC
 
 const ImgSlider = ({ children }: imgSliderlType) => {
-  const [showModal, setShowModal] = useState(false);
-  const [showEscMessage, setShowEscMessage] = useState<boolean>(false);
+  const [showModal, setShowModal] = useState(false)
+  const [showEscMessage, setShowEscMessage] = useState<boolean>(false)
 
   const closeModal = () => {
-    setShowModal(false);
-    document.body.style.overflow = 'auto';
-  };
+    setShowModal(false)
+    document.body.style.overflow = 'auto'
+  }
 
   const openModal = () => {
-    setShowModal(true);
-    document.body.style.overflow = 'hidden';
-    setShowEscMessage(true);
+    setShowModal(true)
+    document.body.style.overflow = 'hidden'
+    setShowEscMessage(true)
     setTimeout(() => {
-      setShowEscMessage(false);
-    }, escMessageTimeout);
-  };
+      setShowEscMessage(false)
+    }, escMessageTimeout)
+  }
 
   useEffect(() => {
     const handleEsc = (event: { key: string }) => {
       if (event.key === 'Escape') {
-        closeModal();
+        closeModal()
       }
-    };
-    window.addEventListener('keydown', handleEsc);
+    }
+    window.addEventListener('keydown', handleEsc)
 
     return () => {
-      window.removeEventListener('keydown', handleEsc);
-    };
-  }, []);
+      window.removeEventListener('keydown', handleEsc)
+    }
+  }, [])
 
-  const imgStyle = children.length > 1 ? 'snap-start snap-mandatory py-2 mx-4 inline-block' : 'rounded-xl py-2';
+  const imgStyle =
+    children.length > 1 ? 'snap-start snap-mandatory py-2 inline-block' : 'rounded-xl py-2'
 
   return (
     <>
-      <div className="overflow-x-auto snap-x snap-start scroll-smooth whitespace-nowrap">
+      <div className="overflow-x-auto scroll-smooth whitespace-nowrap ">
         {children.map((image, index) => (
           <button
+            className=""
             onClick={() => {
-              openModal();
+              openModal()
             }}
             key={index}
           >
@@ -67,7 +69,7 @@ const ImgSlider = ({ children }: imgSliderlType) => {
       {showModal && (
         <div className="bg-black/70 fixed inset-0 overflow-y-scroll scroll-smooth h-screen w-screen pt-5">
           <button
-            className="fixed top-0 right-0 place-self-center z-40 pr-4 py-1 m-3 text-white/80 bg-yellow-600/60 rounded-3xl hover:bg-yellow-600/40"
+            className="fixed top-0 right-0 z-40 pr-4 py-1 m-3 text-white/80 bg-yellow-600/60 rounded-3xl hover:bg-yellow-600/40"
             onClick={() => closeModal()}
           >
             <span className="pl-4 font-bold text-white/80">X</span> Close
@@ -96,7 +98,7 @@ const ImgSlider = ({ children }: imgSliderlType) => {
         </div>
       )}
     </>
-  );
-};
+  )
+}
 
-export default ImgSlider;
+export default ImgSlider

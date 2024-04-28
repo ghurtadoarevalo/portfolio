@@ -1,12 +1,12 @@
-type socialMediaType = {
-  name: string;
-  icon: string;
-  url: string;
-};
+interface socialMediaType {
+  name: string
+  icon: string
+  url: string
+}
 
-type childrenProp = {
-  children: socialMediaType;
-};
+interface childrenProp {
+  children: socialMediaType
+}
 
 const SocialPill = ({ children }: childrenProp) => (
   <a
@@ -21,6 +21,6 @@ const SocialPill = ({ children }: childrenProp) => (
       {children.name}
     </span>
   </a>
-);
+)
 
-export default SocialPill;
+export default SocialPill

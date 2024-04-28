@@ -1,42 +1,34 @@
-import codeIcon from '../assets/code-icon.svg';
-import test2Img from '../assets/test2.webp';
-import test3Img from '../assets/test3.webp';
-import portEvaluacion1 from '../assets/portfolio/evaluacion1.webp';
-import portEvaluacion2 from '../assets/portfolio/evaluacion2.webp';
-import portEvaluacion3 from '../assets/portfolio/evaluacion3.webp';
-import portEvaluacion4 from '../assets/portfolio/evaluacion4.webp';
-import vueIcon from '../assets/vue-js-icon.svg';
-import nodeIcon from '../assets/node-js-icon.svg';
-import azureIcon from '../assets/azure-icon.svg';
-import postgresqlIcon from '../assets/postgresql-icon.svg';
-import javaIcon from '../assets/java-programming-language-icon.svg';
-import ImgSlider from './imgSlider';
+import codeIcon from '../assets/code-icon.svg'
+import portEvaluacion1 from '../assets/portfolio/evaluacion1.webp'
+import portEvaluacion2 from '../assets/portfolio/evaluacion2.webp'
+import portEvaluacion3 from '../assets/portfolio/evaluacion3.webp'
+import portEvaluacion4 from '../assets/portfolio/evaluacion4.webp'
+import portReportes1 from '../assets/portfolio/reportes1.webp'
+import portReportes2 from '../assets/portfolio/reportes2.webp'
+import portReportes3 from '../assets/portfolio/reportes3.webp'
+import portReportes4 from '../assets/portfolio/reportes4.webp'
+import portReportes5 from '../assets/portfolio/reportes5.webp'
 
-type TechIconKey = 'vuejs' | 'nodejs' | 'azure' | 'postgresql' | 'java';
+import ImgSlider from './imgSlider'
+import TechPill from './techPill'
 
-type portfolioType = {
-  id: number;
-  name: string;
-  info: string;
-  imgs: imgsType[];
-  url: string;
-  tech: TechIconKey[];
-};
+type TechIconKey = 'vuejs' | 'nodejs' | 'azure' | 'postgresql' | 'java'
 
-type imgsType = {
-  url: string;
-  aspectRatio: string;
-};
+interface portfolioType {
+  id: number
+  name: string
+  info: string
+  imgs: imgsType[]
+  url: string
+  tech: TechIconKey[]
+}
 
-const techIcons: Record<TechIconKey, string> = {
-  vuejs: vueIcon,
-  nodejs: nodeIcon,
-  azure: azureIcon,
-  postgresql: postgresqlIcon,
-  java: javaIcon,
-};
+interface imgsType {
+  url: string
+  aspectRatio: string
+}
 
-const portfolioData: Array<portfolioType> = [
+const portfolioData: portfolioType[] = [
   {
     id: 1,
     name: 'Diagnostic Test Revision Platform',
@@ -44,23 +36,23 @@ const portfolioData: Array<portfolioType> = [
     imgs: [
       {
         url: portEvaluacion1,
-        aspectRatio: '1388/678',
+        aspectRatio: '1388/678'
       },
       {
         url: portEvaluacion2,
-        aspectRatio: '1388/678',
+        aspectRatio: '1388/678'
       },
       {
         url: portEvaluacion3,
-        aspectRatio: '1388/678',
+        aspectRatio: '1388/678'
       },
       {
         url: portEvaluacion4,
-        aspectRatio: '1388/678',
-      },
+        aspectRatio: '1388/678'
+      }
     ],
     url: 'https://www.linkedin.com/in/ghurtadoa94/',
-    tech: ['vuejs', 'azure'],
+    tech: ['vuejs', 'nodejs', 'postgresql']
   },
   {
     id: 2,
@@ -68,16 +60,28 @@ const portfolioData: Array<portfolioType> = [
     info: 'Creation and development of a payment system for stores throughout Latin America and the Caribbean, which allows the migration of dozens of payment systems to a single platform of easy integration and high performance, using microservices in the Azure cloud.',
     imgs: [
       {
-        url: test3Img,
-        aspectRatio: '1388/925',
+        url: portReportes1,
+        aspectRatio: '1388/678'
       },
       {
-        url: test2Img,
-        aspectRatio: '1388/925',
+        url: portReportes2,
+        aspectRatio: '1388/678'
       },
+      {
+        url: portReportes3,
+        aspectRatio: '1388/678'
+      },
+      {
+        url: portReportes4,
+        aspectRatio: '1388/678'
+      },
+      {
+        url: portReportes5,
+        aspectRatio: '1388/678'
+      }
     ],
     url: 'https://github.com/ghurtadoarevalo',
-    tech: ['vuejs'],
+    tech: ['vuejs']
   },
   {
     id: 3,
@@ -85,14 +89,14 @@ const portfolioData: Array<portfolioType> = [
     info: 'Creation and development of a payment system for stores throughout Latin America and the Caribbean, which allows the migration of dozens of payment systems to a single platform of easy integration and high performance, using microservices in the Azure cloud.',
     imgs: [
       {
-        url: test2Img,
-        aspectRatio: '126/84',
-      },
+        url: portReportes4,
+        aspectRatio: '1388/678'
+      }
     ],
     url: 'mailto:ghurtadoarevalo.94@gmail.com',
-    tech: ['vuejs'],
-  },
-];
+    tech: ['vuejs']
+  }
+]
 
 const Portfolio = () => {
   return (
@@ -110,22 +114,18 @@ const Portfolio = () => {
           <div className="flex flex-col mt-8 md:mt-0 md:place-items-start md:ml-5 p-5 pt-0">
             <h3 className="text-white text-center text-2xl md:text-left">{data.name}</h3>
             <div className="flex flex-row place-content-center gap-3 mt-2">
-              {data.tech.map((tech: TechIconKey, index) => (
-                <button
-                  className="flex flex-row gap-2 bg-white/20 px-3 py-1 rounded-full place-items-center hover:bg-white/40"
-                  key={index}
-                >
-                  <img className="w-3" src={techIcons[tech]} alt="" />
-                  <p className="text-white text-xs">{tech}</p>
-                </button>
+              {data.tech.map((techName: TechIconKey, index) => (
+                <TechPill tech={techName} key={index}></TechPill>
               ))}
             </div>
-            <p className="text-white/50 text-balance p-5 text-center md:text-left md:px-0">{data.info}</p>
+            <p className="text-white/50 text-balance p-5 text-center md:text-left md:px-0">
+              {data.info}
+            </p>
           </div>
         </article>
       ))}
     </section>
-  );
-};
+  )
+}
 
-export default Portfolio;
+export default Portfolio
