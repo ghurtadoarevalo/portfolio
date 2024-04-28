@@ -7,11 +7,7 @@ interface socialMediaType {
   url: string
 }
 
-interface childrenProp {
-  children: socialMediaType
-}
-
-const SocialPill = ({ children }: childrenProp) => (
+const SocialPill = ({ children }: { children: socialMediaType }) => (
   <a
     target="_blank"
     href={children.url}

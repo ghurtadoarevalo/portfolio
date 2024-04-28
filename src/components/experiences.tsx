@@ -22,7 +22,7 @@ const experiences: {
   place: string
 }[] = [
   {
-    time: 'current',
+    time: 'dic. 2023 - current',
     title: 'Full-stack Developer',
     info: 'Creation and development of a payment system for stores throughout Latin America and the Caribbean, which allows the migration of dozens of payment systems to a single platform of easy integration and high performance, using microservices in the Azure cloud.',
     techs: ['vuejs', 'nodejs', 'azure', 'postgresql'],
