@@ -17,8 +17,7 @@ import ImgSlider from './imgSlider'
 import TechPill from './techPill'
 import { ReactElement } from 'react'
 import { IconType } from 'react-icons'
-import { FaLinkedin, FaGithub } from 'react-icons/fa6'
-import { SiMinutemailer } from 'react-icons/si'
+import { FaGithub } from 'react-icons/fa6'
 
 type TechIconKey = 'vuejs' | 'nodejs' | 'azure' | 'postgresql' | 'java'
 
