@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 import { CiMenuBurger } from 'react-icons/ci'
 import { CgProfile } from 'react-icons/cg'
 import { FaCode } from 'react-icons/fa6'
