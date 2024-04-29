@@ -36,7 +36,7 @@ export default function Hero() {
         <div className=" text-gray-200 mt-5 font-mono text-sm">
           +3 años de experiencia.{' '}
           <span className="text-yellow-500 font-semibold">
-            Ingeniero de software & Master en ingeniería informática
+            Ingeniero de software & Magister en ingeniería informática
           </span>
           . Santiago, Chile 🇨🇱.
           <p>Especializado en resolver problemas y realizar un trabajo de calidad.</p>
