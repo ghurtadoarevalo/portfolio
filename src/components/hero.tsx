@@ -23,10 +23,7 @@ const socialMedia = [
 
 export default function Hero() {
   return (
-    <section
-      className="flex flex-col gap-4 md:gap-10 md:flex-row mt-16 place-content-center"
-      id="about"
-    >
+    <section className="flex flex-col gap-4 md:gap-10 md:flex-row mt-16 place-content-center">
       <div className="place-self-center mt-5 z-0">
         <img
           src={headshot}
@@ -35,14 +32,14 @@ export default function Hero() {
         />
       </div>
       <div className="text-balance text-center md:text-left md:w-3/5">
-        <h1 className="text-yellow-600  text-6xl font-medium font-sans">Hey, I&apos;m Gustavo</h1>
+        <h1 className="text-yellow-600  text-6xl font-medium font-sans">Hey, soy Gustavo</h1>
         <div className=" text-gray-200 mt-5 font-mono text-sm">
-          +3 years experience.{' '}
+          +3 años de experiencia.{' '}
           <span className="text-yellow-500 font-semibold">
-            Software engineer & Master in computer science
+            Ingeniero de software & Master en ciencia de la computación
           </span>
           . Santiago, Chile 🇨🇱.
-          <p>Specialized in solving problems and delivering quality work.</p>
+          <p>Especializado en resolver problemas y realizar un trabajo de calidad.</p>
         </div>
         <div className="flex flex-row place-content-center gap-2 mt-6 md:place-content-start">
           {socialMedia.map((media: socialMediaType) => (

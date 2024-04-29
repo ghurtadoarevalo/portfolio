@@ -26,10 +26,9 @@ const socialMedia = [
 ]
 
 const navigation = [
-  { name: 'About', href: '#', icon: <CgProfile /> },
-  { name: 'Experience', href: '#experience', icon: <IoCalendarOutline /> },
-  { name: 'Portfolio', href: '#portfolio', icon: <FaCode /> },
-  { name: 'Contact', href: '#', icon: <CgProfile /> }
+  { name: 'Experiencia', href: '#experience', icon: <IoCalendarOutline /> },
+  { name: 'Portafolio', href: '#portfolio', icon: <FaCode /> },
+  { name: 'Sobre Mí', href: '#about', icon: <CgProfile /> }
 ]
 
 function linkRouteClassName(routeName: string, currentRoute: string) {

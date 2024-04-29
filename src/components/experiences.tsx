@@ -22,23 +22,23 @@ const experiences: {
   place: string
 }[] = [
   {
-    time: 'dic. 2023 - current',
-    title: 'Full-stack Developer',
-    info: 'Creation and development of a payment system for stores throughout Latin America and the Caribbean, which allows the migration of dozens of payment systems to a single platform of easy integration and high performance, using microservices in the Azure cloud.',
+    time: 'dic. 2023 - actualidad',
+    title: 'Desarrollador Full-stack',
+    info: 'Encargado de desarrollar y mantener un sistema de pagos para tiendas del retail en Latinoamérica y el Caribe, utilizando microservicios en la nube de Azure. La plataforma facilita la integración y mejora el rendimiento al consolidar múltiples sistemas de medios de pago en uno solo.',
     techs: ['vuejs', 'nodejs', 'azure', 'postgresql'],
     place: 'Intcomex'
   },
   {
     time: 'dic. 2021 - sept. 2022',
-    title: 'Backend Developer',
-    info: 'Backend development of a web system for complaints for the Gender department at the University of Santiago. My job was to create the fundations of the project, building the DB and his model, and then the logic core.',
+    title: 'Desarrollador Backend',
+    info: 'Desarrollo de sistema web para denuncias del departamento de Género de la Universidad de Santiago. Mi trabajo consistió en crear los cimientos del proyecto, contruyendo la base de datos y su modelo, así como luego desarrollar la lógica central del backend',
     techs: ['java', 'postgresql'],
     place: 'Universidad de Santiago'
   },
   {
     time: 'oct. 2019 - mar. 2021',
-    title: 'Full-stack Developer',
-    info: 'In this position I developed a series of web applications that were used by thousands of students at the University of Santiago in a context of full pandemic. Web application development for diagnostic test correction - Java (Spring) and Vue. Development of web application for diagnostic test session generation - NodeJs and Vue. Development of a web application for individual diagnostic test reports - NodeJs and Vue',
+    title: 'Desarrollador Full-stack',
+    info: 'Desarrollo de 3 sistemas utilizados por miles de estudiantes de la Universidad de Santiago de Chile durante la pandemia. Estos sistemas permiten corregir pruebas de diagnóstico, crear salas virtuales para la rendición de exámenes y entregar reportes individuales a los estudiantes. Actualmente, estos sistemas benefician a miles de estudiantes y ahorran cientos de horas de trabajo al año a la Vicerrectoría Académica de la universidad.',
     techs: ['vuejs', 'nodejs', 'azure', 'postgresql'],
     place: 'Vicerrectoría académica Universidad de Santiago'
   }
@@ -75,10 +75,9 @@ const circle = (
 
 export default function Experiences() {
   return (
-    <section className="pt-20 text-pretty" id="experience">
+    <section className="pt-20" id="experience">
       <div className="text-yellow-500 text-4xl font-thin font-sans flex mb-5 -ml-4 place-items-center ">
-        {' '}
-        {calendarIcon} <span className="ml-5 text-white">Experience</span>{' '}
+        {calendarIcon} <span className="ml-5 text-white">Experiencia</span>
       </div>
       {experiences.map((experience) => {
         return (
@@ -88,18 +87,16 @@ export default function Experiences() {
           >
             <div className="flex flex-col gap-2 pr-4">
               <div className="flex flex-row place-items-center">
-                <span className="-ml-[22px]">{circle}</span>{' '}
+                <span className="-ml-[22px]">{circle}</span>
                 <p className="ml-5 flex place-self-center font-bold text-yellow-500 text-xl">
-                  {experience.title}{' '}
+                  {experience.title}
                 </p>
               </div>
               <span className="font-semibold text-white ml-4 text-balance">{experience.place}</span>
-              <span className="font-mono text-white/60 text-xs ml-4 text-balance">
-                {experience.time}
-              </span>
+              <span className="font-mono text-white/60 text-xs ml-4">{experience.time}</span>
             </div>
             <div className="ml-4 text-pretty sm:ml-0 sm:col-span-2 ">
-              <p className="mb-2 text-white lg:w-4/5 ">{experience.info}</p>
+              <p className="mb-2 text-white lg:w-4/5  text-balance ">{experience.info}</p>
               <div className="flex gap-8 mt-5">
                 {experience.techs?.map((tech: TechIconKey) => {
                   return (

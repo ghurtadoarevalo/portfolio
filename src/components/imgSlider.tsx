@@ -48,7 +48,7 @@ const ImgSlider = ({ children }: imgSliderlType) => {
 
   return (
     <>
-      <div className="overflow-x-auto scroll-smooth whitespace-nowrap">
+      <div className="overflow-x-auto scroll-smooth whitespace-nowrap place-self-center">
         {children.map((image, index) => (
           <button
             className=""
