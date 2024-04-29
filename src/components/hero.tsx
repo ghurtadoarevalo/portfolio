@@ -40,6 +40,9 @@ export default function Hero() {
           </span>
           . Santiago, Chile 🇨🇱.
           <p>Especializado en resolver problemas y realizar un trabajo de calidad.</p>
+          <p className="text-yellow-500 font-mono mt-2">
+            {'< '}B1 english Certificate{' >'}
+          </p>
         </div>
         <div className="flex flex-row place-content-center gap-2 mt-6 md:place-content-start">
           {socialMedia.map((media: socialMediaType) => (

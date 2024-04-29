@@ -33,7 +33,13 @@ const AboutMe = () => (
         <br />
         <p>
           Soy un amante del buen café, el cine y los videojuegos, aunque también disfruto de
-          realizar mis rutinas en el gimnasio.
+          realizar mis rutinas en el gimnasio.{' '}
+          <span className="text-yellow-500 font-bold">
+            My english isn&apos;t perfect, but I&apos;ve been certified at a B1 level{' '}
+            <a href="https://www.poliglota.org/dashboard/certificates/90719?source=LinkedIn">
+              (Certificate).
+            </a>
+          </span>
         </p>
       </div>
     </div>
