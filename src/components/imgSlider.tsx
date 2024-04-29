@@ -73,20 +73,20 @@ const ImgSlider = ({ children }: imgSliderlType) => {
             className="fixed top-0 right-0 pr-4 py-1 m-3 z-50 text-white/80 bg-yellow-600/60 rounded-3xl hover:bg-yellow-600/40"
             onClick={() => closeModal()}
           >
-            <span className="pl-4 font-bold text-white/80  z-50 ">X</span> Close
+            <span className="pl-4 font-bold text-white/80  z-50 ">X</span> Cerrar
           </button>
 
           {showEscMessage ? (
             <>
               <div className="hidden left-0 top-20 right-0 m-auto sm:block bg-black/80 fixed text-center z-40 w-1/2 p-10 text-xl text-white/50 font-thin rounded-lg animate-pulse">
-                Press ESC to close the slider
+                Presiona ESC para cerrar el modal
               </div>
               <div className="sm:hidden left-0 top-20 right-0 m-auto bg-black/80 fixed text-center z-40 w-1/2 p-10  font-thin rounded-lg animate-pulse">
                 <div className="flex flex-row text-xl text-white/50">
                   <span className="text-3xl place-self-center">
                     <MdFlipCameraAndroid />
                   </span>{' '}
-                  Rotate your phone for a better experience
+                  Rota tu móvil para una mejor experiencia
                 </div>
               </div>
             </>
