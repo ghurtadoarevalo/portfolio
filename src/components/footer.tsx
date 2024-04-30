@@ -8,6 +8,8 @@ export default function Footer() {
             <a
               className="text-white decoration-2 underline underline-offset-2 font-medium hover:text-gray-200 hover:decoration-gray-400"
               href="https://github.com/ghurtadoarevalo/portfolio"
+              target="_blank"
+              rel="noreferrer"
             >
               Ver proyecto
             </a>

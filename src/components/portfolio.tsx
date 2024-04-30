@@ -184,7 +184,7 @@ const Portfolio = () => {
         >
           <ImgSlider>{data.imgs}</ImgSlider>
           <div className="flex flex-col mt-8 md:mt-0 md:place-items-start md:ml-5 px-5 pt-5 pb-2">
-            <h3 className="text-white text-center text-2xl md:text-left">{data.name}</h3>
+            <h3 className="text-white text-center text-2xl md:text-left pt-5">{data.name}</h3>
             <div className="flex flex-row place-content-center gap-3 mt-2">
               {data.tech.map((techName: TechIconKey, index) => (
                 <TechPill tech={techName} key={index}></TechPill>

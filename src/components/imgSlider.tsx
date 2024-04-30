@@ -92,12 +92,12 @@ const ImgSlider = ({ children }: imgSliderlType) => {
             </>
           ) : null}
 
-          <div className="pt-10 absolute left-0 right-0 ml-auto mr-auto w-screen">
+          <div className="pt-10 absolute left-0 right-0 ml-auto mr-auto md:w-4/5">
             {children.map((image, index) => (
               <img
                 src={image.url}
                 className={
-                  'mb-10 xl:max-w-screen-2xl shadow-md snap-start snap-mandatory' +
+                  'mb-10 shadow-md snap-start snap-mandatory' +
                   ` aspect-[${image.aspectRatio}] left-0 right-0 ml-auto mr-auto w-screen`
                 }
                 loading="lazy"

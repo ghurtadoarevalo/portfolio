@@ -13,11 +13,11 @@ const AboutMe = () => (
       />
       <div className="text-white/90 font-mono text-[0.9rem] text-left sm:w-3/5 text-pretty mt-10 sm:mt-0">
         <p>
-          Me llamo Gustavo Hurtado y llevo aprendiendo de informática desde que dejé mi educación
+          Por acá Gustavo Hurtado. Llevo aprendiendo de informática desde que dejé mi educación
           escolar, aunque desde siempre he estado ligado a las consolas y computadores.{' '}
           <span className="text-yellow-500">
-            Actualmente me desenvuelvo como Ingeniero Full Stack como parte de una célula ágil y un
-            equipo multidisciplinario.
+            Actualmente me desenvuelvo como Ingeniero Full Stack siendo parte de una célula ágil y
+            un equipo multidisciplinario.
           </span>
         </p>
         <br />
@@ -36,8 +36,12 @@ const AboutMe = () => (
           realizar mis rutinas en el gimnasio.{' '}
           <span className="text-yellow-500 font-bold">
             My english isn&apos;t perfect, but I&apos;ve been certified at a B1 level{' '}
-            <a href="https://www.poliglota.org/dashboard/certificates/90719?source=LinkedIn">
-              (Certificate).
+            <a
+              href="https://www.poliglota.org/dashboard/certificates/90719?source=LinkedIn"
+              target="_blank"
+              rel="noreferrer"
+            >
+              (Take a look).
             </a>
           </span>
         </p>
