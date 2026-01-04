@@ -194,7 +194,9 @@ const Portfolio = () => {
               {data.info}
             </p>
             <div className="mt-2 place-self-center flex flex-row gap-5">
-              {data.links?.map((link, index) => <SocialPill key={index}>{link}</SocialPill>)}
+              {data.links?.map((link, index) => (
+                <SocialPill key={index}>{link}</SocialPill>
+              ))}
             </div>
           </div>
         </article>
