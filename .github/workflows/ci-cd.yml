@@ -27,31 +27,17 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            TARGET_DIR="$HOME/repos/portfolio"
-            mkdir -p "$HOME/repos"
-
-            if [ -d "$TARGET_DIR/.git" ]; then
-              echo "Repo exists, updating..."
-              cd "$TARGET_DIR"
+            if [ -d /home/repos/portfolio ]; then
+              cd /home/repos/portfolio
               git pull --rebase -Xours
             else
-              echo "Repo not found, cloning..."
-              rm -rf "$TARGET_DIR"
-              cd "$HOME/repos"
+              cd /home/repos
               git clone https://github.com/ghurtadoarevalo/portfolio.git
-              cd portfolio
             fi
+            cd /home/repos/portfolio
 
-            # Load environment for pnpm
-            export PNPM_HOME="$HOME/.local/share/pnpm"
+            export PNPM_HOME="/home/root/.local/share/pnpm"
             export PATH="$PNPM_HOME:$PATH"
 
-            # If pnpm is not in path, try to use npx (which usually comes with node)
-            if command -v pnpm &> /dev/null; then
-              pnpm install
-              pnpm build
-            else
-              echo "pnpm not found in PATH, trying npx pnpm..."
-              npx pnpm install
-              npx pnpm build
-            fi
+            pnpm install
+            pnpm build
