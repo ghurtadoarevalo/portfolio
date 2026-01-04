@@ -4,8 +4,8 @@ services:
   portfolio: # Nombre del contenedor
     build:
       context: .. # Ubicación del dockerfile
-      dockerfile: .docker/Dockerfile # Nombre del dockerfile
-    command: bash -c 'pnpm i && pnpm dev'
+      dockerfile: .docker/dev.Dockerfile # Nombre del dockerfile
+    command: bash -c 'pnpm i && pnpm build'
     volumes:
       - ../.:/app # Volumen del proyecto montado en /app
       - nodemodules:/app/node_modules # Volumen del node_modules montado en /app/node_modules

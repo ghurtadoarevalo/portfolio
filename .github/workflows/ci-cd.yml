@@ -1,0 +1,30 @@
+name: SSH into VPS and deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy over SSH
+
+    steps:
+      - name: Deploy project over SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            if [ -d portfolio ]; then
+              cd home/repos/portfolio
+              git pull --rebase -Xours
+            else
+              git clone https://github.com/ghurtadoarevalo/portfolio.git home/repos/portfolio
+            fi
+            cd home/repos/portfolio
+            pnpm install
+            pnpm build

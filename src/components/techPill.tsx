@@ -1,13 +1,8 @@
 import React, { ReactElement } from 'react'
 import { IconType } from 'react-icons'
 import { FaVuejs, FaNodeJs } from 'react-icons/fa'
-import {
-  SiMicrosoftazure,
-  SiPostgresql,
-  SiApacheairflow,
-  SiAmazonredshift,
-  SiGeopandas
-} from 'react-icons/si'
+import { SiPostgresql, SiApacheairflow, SiAmazonredshift, SiGeopandas } from 'react-icons/si'
+import { VscAzure } from 'react-icons/vsc'
 import { FaPython } from 'react-icons/fa6'
 
 type TechIconKey =
@@ -39,7 +34,7 @@ const techIcons: Record<TechIconKey, TechIcon | undefined> = {
     backgroundHover: 'hover:bg-green-700/80'
   },
   azure: {
-    icon: <SiMicrosoftazure />,
+    icon: <VscAzure />,
     background: 'bg-[#008ad7]/40',
     backgroundHover: 'hover:bg-[#008ad7]/80'
   },
