@@ -6,43 +6,54 @@ on:
       - main
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    name: Deploy over SSH
+    name: Build and Deploy
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.12.0
+
       - name: pnpm-setup
         uses: pnpm/action-setup@v4
         with:
           version: 10
+          run_install: false
 
-      - name: Deploy project over SSH
-        uses: appleboy/ssh-action@v1
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint code
+        run: pnpm run lint
+
+      - name: Build project
+        run: pnpm run build
+
+      - name: Deploy to VPS over SSH/SCP
+        uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           port: ${{ secrets.SSH_PORT }}
-          script: |
-            # 1. Load NVM into the session
-            export NVM_DIR="$HOME/.nvm"
-            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-            # 2. Tell NVM to use your installed version
-            nvm use v24.12.0
-
-            # 3. Rest of your deployment logic
-            if [ -d /home/repos/portfolio ]; then
-              cd /home/repos/portfolio
-              git pull --rebase -Xours
-            else
-              cd /home/repos
-              git clone https://github.com/ghurtadoarevalo/portfolio.git
-              cd portfolio
-            fi
-
-            pnpm install
-            pnpm build
+          source: 'dist/*'
+          target: '/home/repos/portfolio'
+          strip_components: 1
