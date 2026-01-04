@@ -52,5 +52,5 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           port: ${{ secrets.SSH_PORT }}
           source: 'dist/*'
-          target: '/home/repos/portfolio'
+          target: '/home/repos/portfolio/dist'
           strip_components: 1
