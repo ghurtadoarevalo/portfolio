@@ -31,7 +31,8 @@ jobs:
               cd home/repos/portfolio
               git pull --rebase -Xours
             else
-              git clone https://github.com/ghurtadoarevalo/portfolio.git home/repos/portfolio
+              cd home/repos
+              git clone https://github.com/ghurtadoarevalo/portfolio.git
             fi
             cd home/repos/portfolio
             pnpm install
