@@ -27,17 +27,22 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           port: ${{ secrets.SSH_PORT }}
           script: |
+            # 1. Load NVM into the session
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+            # 2. Tell NVM to use your installed version
+            nvm use v24.12.0
+
+            # 3. Rest of your deployment logic
             if [ -d /home/repos/portfolio ]; then
               cd /home/repos/portfolio
               git pull --rebase -Xours
             else
               cd /home/repos
               git clone https://github.com/ghurtadoarevalo/portfolio.git
+              cd portfolio
             fi
-            cd /home/repos/portfolio
-
-            export PNPM_HOME="/home/root/.local/share/pnpm"
-            export PATH="$PNPM_HOME:$PATH"
 
             pnpm install
             pnpm build
