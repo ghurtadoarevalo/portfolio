@@ -34,7 +34,7 @@ export default function Hero() {
       <div className="text-balance text-center md:text-left md:w-3/5">
         <h1 className="text-yellow-600  text-6xl font-medium font-sans">Hey, soy Gustavo</h1>
         <div className=" text-gray-200 mt-5 font-mono text-sm">
-          +3 años de experiencia.{' '}
+          +4 años de experiencia.{' '}
           <span className="text-yellow-500 font-semibold">
             Ingeniero de software & Magister en ingeniería informática
           </span>
