@@ -11,6 +11,14 @@ jobs:
     name: Deploy over SSH
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: pnpm-setup
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
       - name: Deploy project over SSH
         uses: appleboy/ssh-action@v1
         with:
