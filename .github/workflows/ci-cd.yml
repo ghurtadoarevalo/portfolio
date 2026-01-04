@@ -28,12 +28,12 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             if [ -d portfolio ]; then
-              cd home/repos/portfolio
+              cd /home/repos/portfolio
               git pull --rebase -Xours
             else
-              cd home/repos
+              cd /home/repos
               git clone https://github.com/ghurtadoarevalo/portfolio.git
             fi
-            cd home/repos/portfolio
+            cd /home/repos/portfolio
             pnpm install
             pnpm build
